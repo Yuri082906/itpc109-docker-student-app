@@ -40,4 +40,14 @@ docker compose down
 ## Database
 Database name: `student_db`
 
+Troubleshooting
+
+Check running containers with docker compose ps.
+
+Start the application with docker compose up -d if the services are stopped.
+
+If the database connection fails, verify the database service and connection settings.
+
+If changes do not appear, refresh the browser and check the application logs.
+
 The application uses Docker Compose to connect the PHP application to the MySQL database.
