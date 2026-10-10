@@ -1,53 +1,84 @@
-# ITPC 109 Docker PHP MySQL Student App
+# ITPC 109 Docker Student Information System
 
-## Project Description
-This project is a Student Information Management System developed using PHP and MySQL. Docker Compose is used to run the application and database services.
+## 1. Project Purpose
+This project is a Student Information System developed for the ITPC 109 laboratory. It uses PHP and MySQL to manage student records through a web application running in Docker containers.
 
-## Technologies Used
+## 2. Technologies Used
 - PHP
 - MySQL
 - Apache
-- Docker and Docker Compose
+- Docker
+- Docker Compose
 - phpMyAdmin
 - Git and GitHub
 
-## Application Features
-- Add student records
-- View student records
-- Edit and update student records
-- Delete student records
+## 3. System Architecture
+The application uses a multi-container architecture:
+- **Web application:** PHP running on Apache.
+- **Database:** MySQL stores the student records.
+- **Database management:** phpMyAdmin provides a browser-based database management interface.
+- **Container orchestration:** Docker Compose manages the application and database services.
 
-## Accessing the Application
-- Student application: http://localhost:8080
-- phpMyAdmin: http://localhost:8081
+The PHP application connects to the MySQL service using the Docker Compose service hostname `db`.
 
-## Running the Project
-Start the application:
+## 4. Installation
+1. Install Docker Desktop and start it.
+2. Install Git if you plan to clone the repository.
+3. Clone the repository or download the project files.
+4. Open a terminal in the project directory.
+5. Start the containers using the command below.
+
+## 5. Docker Commands
+
+Start and build the services:
+
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
-Check running containers:
+Check the container status:
+
 ```bash
 docker compose ps
 ```
 
-Stop the application:
+View application and database logs:
+
+```bash
+docker compose logs
+```
+
+Stop the services:
+
 ```bash
 docker compose down
 ```
 
-## Database
-Database name: `student_db`
+## 6. Application URLs
+- **Student Information System:** http://localhost:8080
+- **phpMyAdmin:** http://localhost:8081
 
-Troubleshooting
+## 7. Database Information for Local Testing
+- **Database name:** `student_db`
+- **MySQL service hostname:** `db`
+- **Database username:** `student_user`
+- **Database password:** `student_pass`
 
-Check running containers with docker compose ps.
+These are the sample local-testing credentials configured for this laboratory. Use only for local development, and do not use them as production credentials.
 
-Start the application with docker compose up -d if the services are stopped.
+## 8. CRUD Features
+- **Create:** Add new student records.
+- **Read:** View student records.
+- **Update:** Edit existing student records.
+- **Delete:** Remove student records.
 
-If the database connection fails, verify the database service and connection settings.
+Student information includes student number, first name, last name, and course.
 
-If changes do not appear, refresh the browser and check the application logs.
+## 9. Student / Developer Information
+- **Student name:** [Enter your full name]
+- **Course / Section:** [Enter your course and section]
+- **Subject:** ITPC 109
+- **Project:** Docker PHP MySQL Student Information System
 
-The application uses Docker Compose to connect the PHP application to the MySQL database.
+## 10. Security Note
+This README is intended for a local laboratory environment. Do not place production secrets, private access tokens, or real production database credentials in this file.
